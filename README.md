@@ -22,10 +22,11 @@ Time-Frequency and Geometric Analysis of Task-dependent learning in Raw Waveform
 
 ## Visualizations
 
-- For implementation of short-time response spectra (STRS) and cumulative response spectra (CRS) maps; see [Script](./audvis/spectral_properties.py)
+- For implementation of short-time response spectra (STRS) and cumulative response spectra (CRS) maps; see [Script](./acousvis/spectral_properties.py)
 
 
 ## Contact 
 
 Devansh Gupta <devansh19160@iiitd.ac.in>
+
 Vinayak Abrol <abrol@iiitd.ac.in>
