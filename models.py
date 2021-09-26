@@ -6,9 +6,47 @@ import torch.utils.data as Data
 from collections import OrderedDict
 from utils import manual_pad
 
-class RawWaveFormCNN_SingleRes_Short(nn.Module):
+''' Examples of model definition for raw-waveform based CNNs 
+    with segmental (1-3 pitch period), subsegmental and multiresolution kernels
+'''    
+
+
+class RawWaveFormCNN_segmental(nn.Module):
     def __init__(self, input_dim = 16000, num_classes = 10):
-        super(RawWaveFormCNN_SingleRes_Short, self).__init__()
+        super(RawWaveFormCNN_segmental, self).__init__()
+        self.input_dim = input_dim
+        self.num_classes = num_classes
+        self.seq_net = nn.Sequential(OrderedDict([
+            ('conv_1', Conv1d(in_channels = 1, out_channels = 80, kernel_size = 300, stride = 10)),
+            ('elu_1', ELU(inplace = True)),
+            ('batch_norm_1', BatchNorm1d(num_features = 80)),
+            ('maxpool_1', MaxPool1d(kernel_size = 2)),
+            ('conv_2', Conv1d(in_channels = 80, out_channels = 100, kernel_size = 7, stride = 1)),
+            ('elu_2', ELU(inplace = True)),
+            ('batch_norm_2', BatchNorm1d(num_features = 100)),
+            ('maxpool_2', MaxPool1d(kernel_size = 2)),
+            ('conv_3', Conv1d(in_channels = 100, out_channels = 100, kernel_size = 3, stride = 1)),
+            ('elu_3', ELU(inplace = True)),
+            ('batch_norm_3', BatchNorm1d(num_features = 100)),
+            ('maxpool_3', MaxPool1d(kernel_size = 2)),
+            ('flatten', Flatten()),
+            ('Linear_1', Linear(in_features = 19300, out_features = 1024)),
+            ('relu', ReLU(inplace = True)),
+            ('dropout', Dropout(0.25)),
+            ('Linear_2', Linear(in_features = 1024, out_features = self.num_classes))
+        ]))
+    
+    def forward(self, x):
+        if self.training:
+            return self.seq_net(x)
+        else:
+            return F.softmax(self.seq_net(x))
+
+
+
+class RawWaveFormCNN_subsegmental(nn.Module):
+    def __init__(self, input_dim = 16000, num_classes = 10):
+        super(RawWaveFormCNN_subsegmental, self).__init__()
         self.input_dim = input_dim
         self.num_classes = num_classes
         self.seq_net = nn.Sequential(OrderedDict([
@@ -124,33 +162,3 @@ class RawWaveFormCNN_MultiRes(nn.Module):
             return F.softmax(final_out)
 
 
-class RawWaveFormCNN_SingleRes_Long(nn.Module):
-    def __init__(self, input_dim = 16000, num_classes = 10):
-        super(RawWaveFormCNN_SingleRes_Long, self).__init__()
-        self.input_dim = input_dim
-        self.num_classes = num_classes
-        self.seq_net = nn.Sequential(OrderedDict([
-            ('conv_1', Conv1d(in_channels = 1, out_channels = 80, kernel_size = 300, stride = 10)),
-            ('elu_1', ELU(inplace = True)),
-            ('batch_norm_1', BatchNorm1d(num_features = 80)),
-            ('maxpool_1', MaxPool1d(kernel_size = 2)),
-            ('conv_2', Conv1d(in_channels = 80, out_channels = 100, kernel_size = 7, stride = 1)),
-            ('elu_2', ELU(inplace = True)),
-            ('batch_norm_2', BatchNorm1d(num_features = 100)),
-            ('maxpool_2', MaxPool1d(kernel_size = 2)),
-            ('conv_3', Conv1d(in_channels = 100, out_channels = 100, kernel_size = 3, stride = 1)),
-            ('elu_3', ELU(inplace = True)),
-            ('batch_norm_3', BatchNorm1d(num_features = 100)),
-            ('maxpool_3', MaxPool1d(kernel_size = 2)),
-            ('flatten', Flatten()),
-            ('Linear_1', Linear(in_features = 19300, out_features = 1024)),
-            ('relu', ReLU(inplace = True)),
-            ('dropout', Dropout(0.25)),
-            ('Linear_2', Linear(in_features = 1024, out_features = self.num_classes))
-        ]))
-    
-    def forward(self, x):
-        if self.training:
-            return self.seq_net(x)
-        else:
-            return F.softmax(self.seq_net(x))
