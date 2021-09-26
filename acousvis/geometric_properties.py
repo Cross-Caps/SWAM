@@ -6,6 +6,14 @@ from datetime import datetime
 import json
 import copy
 
+''' Geometric properties are adapted from: 
+    K. Skretting and K. Engan, “Learned dictionaries for sparse image representation: properties and results,” 
+    in Wavelets and Sparsity XIV. International Society for Optics and Photonics, 
+    2011, vol. 8138, pp. 404 – 417, SPIE
+    https://www.ux.uis.no/~karlsk/dle/dictprop.m
+'''
+
+
 class DictionaryMetrics:
     def __init__(self, D, gap = None, rad = None):
         self.D = D
