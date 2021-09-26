@@ -23,7 +23,13 @@ Time-Frequency and Geometric Analysis of Task-dependent learning in Raw Waveform
 ## Visualizations
 
 - For implementation of short-time response spectra (STRS) and cumulative response spectra (CRS) maps; see [Script](./acousvis/spectral_properties.py)
+- For implementation of various geometric properties; see [Script](./acousvis/geometric_properties.py)
+- A demo on how to plot STRS and CRS maps is available in [Notebook](./acousvis/demo.ipynb)
 
+## References & Credits
+
+1. [Dictionary properties](https://www.ux.uis.no/~karlsk/dle/dictprop.m) K. Skretting and K. Engan, “Learned dictionaries for sparse image representation: properties and results,” in Wavelets and Sparsity XIV. International Society for Optics and Photonics, 2011, vol. 8138, pp. 404 – 417, SPIE
+2. [WV Contours]() Samer A. Abdallah and Mark D. Plumbley,   “If the independent components of natural images are edges, what are the independent components of natural sounds?,” in International Workshop on Independent Component Analysis and Blind Separation (ICA), September 2001, pp. 534–539.
 
 ## Contact 
 
