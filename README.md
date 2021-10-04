@@ -17,7 +17,7 @@ Time-Frequency and Geometric Analysis of Task-dependent learning in Raw Waveform
 
 <h4 align="centre"> 
     <p align="centre" > Short-Time Response Spectra</p>
-    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/gifs/strs.gif" width="700" height="300" />
+    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speaker_classification_Short_male_3dplots.mp4" width="700" height="300" />
 </h4>
 
 ## Visualizations
