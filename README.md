@@ -16,8 +16,10 @@ Code to reproduce plots from the paper:
 Time-Frequency and Geometric Analysis of Task-dependent learning in Raw Waveform based Acoustic Models
 
 <h4 align="centre"> 
-    <p align="centre" > Short-Time Response Spectra</p>
-    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speaker_classification_Short_male_3dplots.mp4" width="700" height="300" />
+    <p align="centre" > Response Spectra for Speech Classification</p>
+    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speech_classification_3dplots.gif" width="3000" height="200" />
+    <p align="centre" > Response Spectra for Male Speaker Classification</p>
+    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speaker_male_classification_3dplots.gif" width="3000" height="200" />
 </h4>
 
 ## Visualizations
