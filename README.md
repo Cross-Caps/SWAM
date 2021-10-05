@@ -20,6 +20,8 @@ Time-Frequency and Geometric Analysis of Task-dependent learning in Raw Waveform
     <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speech_classification_3dplots.gif" width="3000" height="220" />
     <p align="centre" > Response Spectra for Male Speaker Classification</p>
     <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speaker_male_classification_3dplots.gif" width="3000" height="220" />
+    <p align="centre" > Response Spectra for Male Speaker Classification</p>
+    <img src="https://github.com/Cross-Caps/SWAM/blob/main/Plots/speaker_female_classification_3dplots.gif" width="3000" height="220" />
 </h4>
 
 ## Visualizations
