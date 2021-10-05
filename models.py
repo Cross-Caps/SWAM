@@ -17,9 +17,9 @@ def manual_pad(t, pad_val):
     t = torch.cat([back, t, front], axis = 2).to(device)
     return t
 
-class RawWaveFormCNN_segmental(nn.Module):
+class RawWaveFormCNN_Segmental(nn.Module):
     def __init__(self, input_dim = 16000, num_classes = 10):
-        super(RawWaveFormCNN_segmental, self).__init__()
+        super(RawWaveFormCNN_Segmental, self).__init__()
         self.input_dim = input_dim
         self.num_classes = num_classes
         self.seq_net = nn.Sequential(OrderedDict([
@@ -50,9 +50,9 @@ class RawWaveFormCNN_segmental(nn.Module):
 
 
 
-class RawWaveFormCNN_subsegmental(nn.Module):
+class RawWaveFormCNN_SubSegmental(nn.Module):
     def __init__(self, input_dim = 16000, num_classes = 10):
-        super(RawWaveFormCNN_subsegmental, self).__init__()
+        super(RawWaveFormCNN_SubSegmental, self).__init__()
         self.input_dim = input_dim
         self.num_classes = num_classes
         self.seq_net = nn.Sequential(OrderedDict([
