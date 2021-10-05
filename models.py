@@ -4,12 +4,18 @@ import torch.nn.functional as F
 from torch.nn import Conv1d, ELU, MaxPool1d, BatchNorm1d, Dropout, Linear, Flatten, Softmax, ReLU
 import torch.utils.data as Data
 from collections import OrderedDict
-from utils import manual_pad
 
 ''' Examples of model definition for raw-waveform based CNNs 
     with segmental (1-3 pitch period), subsegmental and multiresolution kernels
 '''    
 
+def manual_pad(t, pad_val):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    b_size, chan, _ = t.size()
+    front = torch.zeros(b_size, chan, ceil(pad_val/2)).to(device)
+    back = torch.zeros(b_size, chan, floor(pad_val/2)).to(device)
+    t = torch.cat([back, t, front], axis = 2).to(device)
+    return t
 
 class RawWaveFormCNN_segmental(nn.Module):
     def __init__(self, input_dim = 16000, num_classes = 10):
