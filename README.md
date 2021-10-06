@@ -3,7 +3,7 @@
 <p align="center">
 <img alt="GitHub" src="https://img.shields.io/github/license/cross-caps/AFLI?color=green&logo=GNU&logoColor=green">
 <img alt="python" src="https://img.shields.io/badge/python-%3E%3D3.8-blue?logo=python">
-<img alt="pytorch" src="https://img.shields.io/badge/pytorch-%3D2.5.0-orange?logo=pytorch">
+<img alt="pytorch" src="https://img.shields.io/badge/pytorch-%3D1.9-orange?logo=pytorch">
 <img alt="Plotly" src="https://img.shields.io/badge/Plotly-%3D5.3.1-green?logo=plotly">
 <img alt="PyPI" src="https://img.shields.io/badge/release-v1.0-brightgreen?logo=apache&logoColor=brightgreen">
 </p>
